@@ -1,9 +1,9 @@
 package dev.kuch.mental_health_support.dispatcher;
 
-import dev.kuch.mental_health_support.handlers.CommandHandler;
-import dev.kuch.mental_health_support.model.BotState;
+import dev.kuch.mental_health_support.handlers.interace.CommandHandler;
+import dev.kuch.mental_health_support.model.enums.BotState;
 import dev.kuch.mental_health_support.model.SessionStorage;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.bots.AbsSender;
@@ -11,18 +11,13 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class CommandDispatcher {
 
     private final List<CommandHandler> handlers;
 
 
-    public CommandDispatcher(List<CommandHandler> handlers) {
-        this.handlers = handlers;
-    }
-
     public void dispatch(Update update, AbsSender sender){
-
-
 
         if (update.hasMessage() && update.getMessage().hasText()) {
             BotState state = SessionStorage.getSession(update.getMessage().getChatId()).getState();

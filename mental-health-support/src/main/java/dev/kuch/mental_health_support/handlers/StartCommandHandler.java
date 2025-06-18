@@ -1,6 +1,7 @@
 package dev.kuch.mental_health_support.handlers;
 
-import dev.kuch.mental_health_support.model.BotState;
+import dev.kuch.mental_health_support.handlers.interace.CommandHandler;
+import dev.kuch.mental_health_support.model.enums.BotState;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;

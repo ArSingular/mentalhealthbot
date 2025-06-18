@@ -1,5 +1,6 @@
 package dev.kuch.mental_health_support.service;
 
+import lombok.RequiredArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -10,10 +11,10 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class ChatSessionService {
 
     private final Map<Long, List<Map<String, String>>> sessionMap = new HashMap<>();
-    private final int MAX_HISTORY = 10;
 
     public List<Map<String, String>> getSessionMessages(Long chatId) {
         return sessionMap.getOrDefault(chatId, new ArrayList<>());
@@ -33,6 +34,7 @@ public class ChatSessionService {
 
     private void trimHistory(Long chatId) {
         List<Map<String, String>> messages = sessionMap.get(chatId);
+        int MAX_HISTORY = 10;
         if (messages.size() > MAX_HISTORY) {
             sessionMap.put(chatId, messages.subList(messages.size() - MAX_HISTORY, messages.size()));
         }

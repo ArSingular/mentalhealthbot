@@ -2,6 +2,7 @@ package dev.kuch.mental_health_support.bot;
 
 
 import dev.kuch.mental_health_support.dispatcher.CommandDispatcher;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -11,6 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Component
+@RequiredArgsConstructor
 public class MentalHealthBot extends TelegramLongPollingBot {
 
     @Value("${bot.username}")
@@ -22,9 +24,6 @@ public class MentalHealthBot extends TelegramLongPollingBot {
     private final CommandDispatcher dispatcher;
     private final ExecutorService executorService = Executors.newCachedThreadPool();
 
-    public MentalHealthBot(CommandDispatcher dispatcher) {
-        this.dispatcher = dispatcher;
-    }
 
     @Override
     public void onUpdateReceived(Update update) {

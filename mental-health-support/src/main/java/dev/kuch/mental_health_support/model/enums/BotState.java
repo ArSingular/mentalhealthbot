@@ -1,4 +1,4 @@
-package dev.kuch.mental_health_support.model;
+package dev.kuch.mental_health_support.model.enums;
 
 /**
  * @author Artur Kuch
@@ -10,7 +10,4 @@ public enum BotState {
     AWAITING_ASK,
     AWAITING_MOOD,
     AWAITING_NOTE
-
-
-
 }

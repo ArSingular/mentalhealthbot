@@ -1,6 +1,7 @@
 package dev.kuch.mental_health_support.handlers;
 
-import dev.kuch.mental_health_support.model.BotState;
+import dev.kuch.mental_health_support.handlers.interace.CommandHandler;
+import dev.kuch.mental_health_support.model.enums.BotState;
 import dev.kuch.mental_health_support.model.SessionStorage;
 import dev.kuch.mental_health_support.model.UserSession;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.*;
 
 @Component
-public class MoodCommandHandler implements CommandHandler{
+public class MoodCommandHandler implements CommandHandler {
 
 
     @Override

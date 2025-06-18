@@ -20,28 +20,20 @@ public class TranslationService {
     public String translateText(String text, String targetLanguage) {
         String url = "https://libretranslate.com/translate";
 
-        // Параметри для запиту
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
                 .queryParam("q", text)
                 .queryParam("source", "en")
                 .queryParam("target", targetLanguage);
 
-        // Виконання POST запиту
         ResponseEntity<LibreTranslateResponse> response = restTemplate.postForEntity(
                 builder.toUriString(), null, LibreTranslateResponse.class);
 
         return response.getBody() != null ? response.getBody().getTranslatedText() : "Error translating";
     }
 
+    @Getter
+    @Setter
     public static class LibreTranslateResponse {
         private String translatedText;
-
-        public String getTranslatedText() {
-            return translatedText;
-        }
-
-        public void setTranslatedText(String translatedText) {
-            this.translatedText = translatedText;
-        }
     }
 }

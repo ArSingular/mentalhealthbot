@@ -1,6 +1,7 @@
 package dev.kuch.mental_health_support.service;
 
 import com.deepl.api.DeepLClient;
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @Service
+@Slf4j
 public class QuoteService {
 
     private final RestTemplate restTemplate;
@@ -35,7 +37,8 @@ public class QuoteService {
             return client.translateText(result, null, "uk").getText();
 
         }catch (Exception e){
-            return "Щось пішло не так з цитатами. А поки що: ТИ МОЛОДЕЦЬ!";
+            log.error("Виникла помилка: {}", e.getMessage());
+            return "Цитати десь загубились, Я вже їх ловлю \uD83D\uDC1B\uD83E\uDEA4\nАле знаєш що? Ти — справжній герой цього дня!\uD83E\uDDB8";
         }
     }
 

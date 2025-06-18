@@ -1,6 +1,6 @@
-package dev.kuch.mental_health_support.handlers;
+package dev.kuch.mental_health_support.handlers.interace;
 
-import dev.kuch.mental_health_support.model.BotState;
+import dev.kuch.mental_health_support.model.enums.BotState;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
