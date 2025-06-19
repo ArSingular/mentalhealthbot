@@ -1,4 +1,4 @@
-package dev.kuch.mental_health_support.handlers;
+package dev.kuch.mental_health_support.handlers.callback;
 
 import dev.kuch.mental_health_support.handlers.interace.CommandHandler;
 import dev.kuch.mental_health_support.model.enums.BotState;
@@ -51,7 +51,6 @@ public class CallBackMoodHandler implements CommandHandler {
             e.printStackTrace();
         }
 
-        // Відповідь Telegram, щоб прибрати "loading"
         AnswerCallbackQuery answer = new AnswerCallbackQuery();
         answer.setCallbackQueryId(update.getCallbackQuery().getId());
         answer.setText("Настрій обрано: " + moodText);

@@ -19,7 +19,7 @@ public class QuoteCommandHandler implements CommandHandler {
 
     @Override
     public boolean supports(String command, BotState botState) {
-        return command.equals("/quote") || command.equals("Щоденна порада") && botState == BotState.NONE;
+        return command.equals("/quote") || command.equals("Щоденна цитата") && botState == BotState.NONE;
     }
 
     @Override

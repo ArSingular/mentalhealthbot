@@ -56,13 +56,14 @@ public class StartCommandHandler implements CommandHandler {
         KeyboardRow row1 = new KeyboardRow();
 
 
-        row1.add(new KeyboardButton("Щоденна порада"));
+        row1.add(new KeyboardButton("Щоденна цитата"));
         row1.add(new KeyboardButton("Дихальні вправи"));
         
 
         KeyboardRow row2 = new KeyboardRow();
         row2.add(new KeyboardButton("Записати настрій"));
         row2.add(new KeyboardButton("Обговорити запит"));
+        row2.add(new KeyboardButton("Щоденник настрою"));
 
         startKeyboard.setKeyboard(Arrays.asList(row1, row2));
         return startKeyboard;
