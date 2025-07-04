@@ -39,7 +39,6 @@ public class CalendarBuilder {
             LocalDate current = LocalDate.of(year, month, day);
             String label = String.valueOf(day);
 
-            // 🔵 Підсвітка сьогоднішнього дня
             if (current.equals(today)) {
                 label = "🔵" + day;
             }

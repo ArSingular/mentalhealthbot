@@ -25,7 +25,7 @@ public class AskMessageHandler implements CommandHandler {
 
     @Override
     public boolean supports(String command, BotState botState) {
-        return botState == BotState.AWAITING_ASK;
+        return botState == BotState.AWAITING_ASK || botState == BotState.AWAITING_BREATH;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AskMessageHandler implements CommandHandler {
         }
 
 
-        String answer = chatGptService.askChatGpt(chatId, userText);
+        String answer = chatGptService.askChatGpt(chatId, userText, SessionStorage.getSession(Long.valueOf(chatId)).getState());
 
         SendMessage message = SendMessage.builder()
                 .chatId(chatId)

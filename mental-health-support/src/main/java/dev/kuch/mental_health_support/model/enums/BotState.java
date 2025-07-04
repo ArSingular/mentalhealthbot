@@ -9,5 +9,6 @@ public enum BotState {
     NONE,
     AWAITING_ASK,
     AWAITING_MOOD,
-    AWAITING_NOTE
+    AWAITING_NOTE,
+    AWAITING_BREATH
 }
